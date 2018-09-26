@@ -89,6 +89,7 @@ public class ReadTestCase
 		for(String Test : TestCaseValue)
 		{
 			System.out.println(Test);
+			System.out.println(Test);
 		}
 
 	}
