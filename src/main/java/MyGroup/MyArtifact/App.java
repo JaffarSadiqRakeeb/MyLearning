@@ -2,7 +2,9 @@ package MyGroup.MyArtifact;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -16,17 +18,31 @@ public class App
 	public static WebDriver driver;
 	public static WebElement webelement;
 	public static String BrowserName;
-	public static String ChromerDriverURL = "C:\\Automation\\WebDrivers\\chromedriver.exe";
+	public static By by;
+	public static String ChromerDriverURL = "C:\\Jaffar\\Learning\\chromedriver.exe";
+	
+	
+	public static ArrayList<String> TestCaseActionType = new ArrayList<String>();
+	public static ArrayList<String> TestCaseTarget = new ArrayList<String>();
+	public static ArrayList<String> TestCaseValue = new ArrayList<String>();
+	
+	public static int CStepNumber; 
+	public static String CTestCaseActionType, CTestCaseTarget, CTestCaseValue;
+	
+	
 	
     public static void main( String[] args ) throws InterruptedException, IOException, SQLException, ClassNotFoundException
     {
     	BrowserName = "CHROME";
     	Browser.LaunchBrowser();
-    	//ReadTestCase.ReadTestFromExcel();
-    	ReadTestCase.ReadTestFromDB();
+    	ReadTestCase.ReadTestFromExcel();
+    	//ReadTestCase.ReadTestFromDB();
         
-        driver.navigate().to("https://qa.applications.marykayintouch.com/login/login.aspx");
+    	ExecuteTestCase.ExecuteTestCaseStep();
         
         
     }
+
+
+	
 }

@@ -19,15 +19,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ReadTestCase
 {
-	
+
 	
 	public static void ReadTestFromExcel() throws IOException
 	{
-		ArrayList<String> TestCaseActionType = new ArrayList<String>();
-		ArrayList<String> TestCaseTarget = new ArrayList<String>();
-		ArrayList<String> TestCaseValue = new ArrayList<String>();
+		
 			
-		File file = new File("D:\\TestCase.xlsx");
+		File file = new File("C:\\Jaffar\\Learning\\TestCase.xlsx");
 		FileInputStream FIS = new FileInputStream(file);
 		Workbook WB = new XSSFWorkbook(FIS);
 		Sheet Sh = WB.getSheet("Sheet1");
@@ -37,24 +35,14 @@ public class ReadTestCase
 		for(int i = 0;i < rowCount + 1; i++)
 		{
 			Row row = Sh.getRow(i);
-			 TestCaseActionType.add(DF.formatCellValue(row.getCell(0)));	
-			 TestCaseTarget.add(DF.formatCellValue(row.getCell(1))); //wil display the 1 numeric value as 1
-			 TestCaseValue.add(row.getCell(2).toString());          // will display the 1 numberic value as 1.0
+			 App.TestCaseActionType.add(DF.formatCellValue(row.getCell(1)));	
+			 App.TestCaseTarget.add(DF.formatCellValue(row.getCell(2))); //will display the 1 numeric value as 1
+			 App.TestCaseValue.add(DF.formatCellValue(row.getCell(3)));
+			 //TestCaseValue.add(row.getCell(2).toString());          // will display the 1 numeric value as 1.0
 				
 		}
 		
-		for(String Test : TestCaseActionType)
-		{
-			System.out.println(Test);
-		}
-		for(String Test : TestCaseTarget)
-		{
-			System.out.println(Test);
-		}
-		for(String Test : TestCaseValue)
-		{
-			System.out.println(Test);
-		}
+		
 	}
 	public static void ReadTestFromDB() throws SQLException, ClassNotFoundException
 	{
@@ -78,20 +66,6 @@ public class ReadTestCase
 		}
 		Con.close();
 		
-		for(String Test : TestCaseActionType)
-		{
-			System.out.println(Test);
-		}
-		for(String Test : TestCaseTarget)
-		{
-			System.out.println(Test);
-		}
-		for(String Test : TestCaseValue)
-		{
-			//System.out.println(Test);
-			System.out.println(Test);
-		}
-
 	}
 }
 

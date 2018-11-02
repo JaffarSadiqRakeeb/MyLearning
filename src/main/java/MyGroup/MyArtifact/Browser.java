@@ -7,7 +7,7 @@ public class Browser
 {
 	public static void Open()
 	{
-		
+		App.driver.navigate().to(App.CTestCaseValue);
 	}
 	public static void LaunchBrowser()
 	{
